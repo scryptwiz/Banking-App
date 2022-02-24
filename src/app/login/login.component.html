@@ -1,0 +1,30 @@
+<div class="w-screen flex justify-center items-center h-screen" id="main_bg">
+    <div class="w-2/6 rounded h-4/5" id="middleContainer">
+        <!-- top btn section -->
+        <div class="flex w-full">
+            <button class="text-gray-200 text-xl w-3/6 py-4 rounded-tl rounded-br-3xl outline-none w-50" id="l_btn" routerLink="/">Log in</button>
+            <button class="text-gray-200 text-xl w-3/6 py-4 bg-transparent rounded-tr rounded-bl-3xl outline-none w-50" routerLink="/register">Sign Up</button>
+        </div>
+        <div class="px-12 h-5/6 flex flex-col justify-evenly items-center">
+            <div class="flex flex-col w-full mt-5">
+                <label class="text-gray-400 text-sm px-2">Username</label>
+                <input type="text" placeholder="Username" class="bg-transparent border-gray-700 text-gray-100 outline-none mt-2 w-full rounded border px-2 text-sm py-1.5 focus:border-pink-500 transition duration-500 hover:border-pink-500" [(ngModel)]="username">
+            </div>
+            <div class="flex flex-col w-full mt-5">
+                <label class="text-gray-400 text-sm px-2">Email Address</label>
+                <input type="email" placeholder="email" class="bg-transparent border-gray-700 text-gray-100 outline-none mt-2 w-full rounded border px-2 text-sm py-1.5 focus:border-pink-500 transition duration-500 hover:border-pink-500" [(ngModel)]="email">
+            </div>
+            <div class="flex flex-col w-full mt-5">
+                <label class="text-gray-400 text-sm px-2">Password</label>
+                <input type="password" placeholder="Password" class="bg-transparent border-gray-700 text-gray-100 outline-none mt-2 w-full rounded border px-2 py-1.5 text-sm focus:border-pink-500 transition duration-500 hover:border-pink-500" [(ngModel)]="password">
+            </div>
+            <div class="flex flex-col w-full mt-5">
+                <label class="text-gray-400 text-sm px-2">Confirm password</label>
+                <input type="ConfirmPassword" placeholder="Password" class="bg-transparent border-gray-700 text-gray-100 outline-none mt-2 w-full rounded border px-2 py-1.5 text-sm focus:border-pink-500 transition duration-500 hover:border-pink-500" [(ngModel)]="confirmPassword">
+            </div>
+            <div class="flex flex-col w-full mt-5">
+                <button class="w-full text-gray-100 font-semibold bg-gradient-to-l from-purple-500 to-pink-500 rounded py-1.5 transition duration-500" (click)="login()">SignIn</button>
+            </div>
+        </div>
+    </div>
+</div>

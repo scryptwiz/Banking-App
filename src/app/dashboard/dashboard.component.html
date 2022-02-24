@@ -1,0 +1,64 @@
+<div class="w-screen h-screen flex">
+    <div class="h-screen w-8/12 bg-gray-500 px-10 py-5" id="main_bg">
+        <div class="flex justify-between items-center h-10">
+            <h4 class="font-bold text-xl text-gray-300">B</h4>
+            <div class="text-gray-300 flex w-4/6 justify-between">
+                <p class="=text-yellow-600 cursor-pointer" routerLink="/dashboard">Home</p>
+                <p class="hover:text-yellow-600 cursor-pointer" routerLink="/transfer">Transfer</p>
+                <p class="hover:text-yellow-600 cursor-pointer" routerLink="#">Withdraw</p>
+                <input type="search" placeholder="search" class="px-3 py-0.5 rounded outline-none" id="search_bar">
+            </div>
+        </div>
+        <div class="text-gray-100 h-5/6 mt-12">
+            <h2 class="font-semibold text-2xl">Main Dashbaord</h2>
+
+            <!-- transaction Details -->
+            <div class="h-3/5 flex justify-between">
+                <div class="w-5/12 mt-10 h-4/5 rounded-xl px-5 py-4" id="side_cont">
+                    <h3>Recent Transactions</h3>
+                </div>
+                <div class="w-5/12 mt-10 h-4/5 rounded-xl px-5 py-4" id="side_cont">
+                    <h3>Recent Transactions</h3>
+                </div>
+            </div>
+
+            <!-- buttom div -->
+            <div class="w-full rounded-xl h-2/6 mt-2 p-4" id="side_cont">
+                Hello hw are u doing
+            </div>
+        </div>
+    </div>
+    <div class="h-screen w-4/12 py-5 px-10" id="side_cont">
+        <div class="flex h-10 items-center justify-between">
+            <i class="fa fa-bell text-xl text-gray-300" aria-hidden="true"></i>
+            <div class="flex text-gray-100 items-center">
+                <h4>{{currentUser.username}}</h4>
+                <i class="fa fa-user-circle text-3xl text-gray-100 ml-4" aria-hidden="true"></i>
+            </div>
+        </div>
+        <hr class="border-gray-400 opacity-50 mt-3">
+        <div class="flex flex-col justify-evenly text-gray-100">
+            <div class="mt-7">
+                <h1 class="font-bold text-2xl">{{currentUser.username}}</h1>
+                <p class="text-sm mt-1">verified account <i class="fas fa-check-circle text-yellow-600"></i></p>
+            </div>
+            <div class="w-full h-48  rounded-xl mb-8 mt-9 p-4" id="main_bg">
+                <h3 class="font-bold">M</h3>
+                <div class="flex justify-between items-center font-bold text-xl mt-3">
+                    <h3>{{currentUser.username}}</h3>
+                    <p>...</p>
+                </div>
+                <p class="text-sm textx-gray-100 mt-4">Balance</p>
+                <h3 class="font-semibold text-xl mt-5 tracking-widest">{{currentUser.account_no}}</h3>
+            </div>
+            <!-- main balance -->
+            <div class="w-full h-48 flex justify-center items-center flex-col  rounded-xl" id="main_bg">
+                <h4 class="font-semibold text-2xl">Balance</h4>
+                <h5 class="font-semibold text-2xl mt-3">${{currentUser.account_bal}}</h5>
+            </div>
+            <div class="mt-3">
+                <p class="text-right cursor-pointer w-2/6 ml-auto hover:text-red-400" (click)="logout()">Logout <i class="far fa-sign-out"></i></p>
+            </div>
+        </div>
+    </div>
+</div>

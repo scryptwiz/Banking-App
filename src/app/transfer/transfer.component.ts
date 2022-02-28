@@ -14,23 +14,31 @@ export class TransferComponent implements OnInit {
   public reason: string ='';
   public password: string ='';
   public receiver:any ='';
-  public editedCustomer:any =''; 
+  public editedCustomerIndexOf :any =''; 
+  public editedSenderIndexOf :any =''; 
+  public curUser: any = ''
   constructor() { }
 
   ngOnInit(): void {
     this.currentUser = JSON.parse(localStorage["currentUser"])
-    console.log(this.currentUser);
+    this.curUser = JSON.parse(localStorage['curUser'])
     this.allUsers = JSON.parse(localStorage["localStudents"]) 
   }
   transfer() {
     this.receiver=(this.allUsers.find((val:any, i:number)=>val.account_no==this.bfAccount_no));
     console.log(this.receiver);
+    this.editedCustomerIndexOf = this.allUsers.indexOf(this.receiver);
+    this.editedSenderIndexOf = this.allUsers.indexOf(this.curUser);
+    console.log(this.curUser);
+    console.log(this.editedSenderIndexOf);
+    console.log(this.editedCustomerIndexOf);
+    
     let { amount, password, receiver, } = this;
     if (amount>this.currentUser.account_bal) {
       alert("Insufficient Fund");
     }
     else if (!receiver) {
-      alert("Account does not exist");
+      alert("User does not exist");
     }
     else if (this.currentUser.password!=password) {
       alert("Incorrect Password");
@@ -39,9 +47,11 @@ export class TransferComponent implements OnInit {
       this.currentUser.account_bal = this.currentUser.account_bal-this.amount
       this.receiver.account_bal = this.receiver.account_bal+this.amount;
       (localStorage["currentUser"]) =JSON.stringify(this.currentUser)
-      
       console.log(this.currentUser.account_bal);
+      this.allUsers[this.editedCustomerIndexOf] = this.receiver;
+      console.log(this.allUsers);
       alert("Transfer was successful");
+      localStorage["localStudents"] = JSON.stringify(this.allUsers);
     }
   }
 

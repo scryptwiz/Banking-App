@@ -28,11 +28,14 @@ export class TransferComponent implements OnInit {
     this.receiver=(this.allUsers.find((val:any, i:number)=>val.account_no==this.bfAccount_no));
     console.log(this.receiver);
     this.editedCustomerIndexOf = this.allUsers.indexOf(this.receiver);
-    this.editedSenderIndexOf = this.allUsers.indexOf(this.curUser);
+    console.log(this.allUsers);
     console.log(this.curUser);
+    
+    
+    let found =this.allUsers.find((val:any)=>this.curUser.username==val.username)
+    this.editedSenderIndexOf = this.allUsers.indexOf(found)
     console.log(this.editedSenderIndexOf);
     console.log(this.editedCustomerIndexOf);
-    
     let { amount, password, receiver, } = this;
     if (amount>this.currentUser.account_bal) {
       alert("Insufficient Fund");

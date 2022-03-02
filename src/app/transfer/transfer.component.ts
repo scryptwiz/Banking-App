@@ -14,28 +14,30 @@ export class TransferComponent implements OnInit {
   public reason: string ='';
   public password: string ='';
   public receiver:any ='';
-  public editedCustomerIndexOf :any =''; 
+  public editedReceiverIndexOf :any =''; 
   public editedSenderIndexOf :any =''; 
   public curUser: any = ''
   constructor() { }
 
   ngOnInit(): void {
-    this.currentUser = JSON.parse(localStorage["currentUser"])
+    this.currentUser = JSON.parse(localStorage["curUser"])
     this.curUser = JSON.parse(localStorage['curUser'])
     this.allUsers = JSON.parse(localStorage["localStudents"]) 
   }
   transfer() {
+    // Receiver
     this.receiver=(this.allUsers.find((val:any, i:number)=>val.account_no==this.bfAccount_no));
     console.log(this.receiver);
-    this.editedCustomerIndexOf = this.allUsers.indexOf(this.receiver);
+    this.editedReceiverIndexOf = this.allUsers.indexOf(this.receiver);
     console.log(this.allUsers);
     console.log(this.curUser);
     
-    
+    // Sender
     let found =this.allUsers.find((val:any)=>this.curUser.username==val.username)
     this.editedSenderIndexOf = this.allUsers.indexOf(found)
     console.log(this.editedSenderIndexOf);
-    console.log(this.editedCustomerIndexOf);
+    console.log(this.editedReceiverIndexOf);
+
     let { amount, password, receiver, } = this;
     if (amount>this.currentUser.account_bal) {
       alert("Insufficient Fund");
@@ -47,12 +49,27 @@ export class TransferComponent implements OnInit {
       alert("Incorrect Password");
     }  
     else {
-      this.currentUser.account_bal = this.currentUser.account_bal-this.amount
+      // Editing Sender
+      this.currentUser.account_bal = this.curUser.account_bal-this.amount;
+      this.allUsers[this.editedSenderIndexOf] = this.currentUser;
+      (localStorage["curUser"]) =JSON.stringify(this.currentUser);
+
+      // Editing Receiver
       this.receiver.account_bal = this.receiver.account_bal+this.amount;
-      (localStorage["currentUser"]) =JSON.stringify(this.currentUser)
-      console.log(this.currentUser.account_bal);
-      this.allUsers[this.editedCustomerIndexOf] = this.receiver;
+      this.allUsers[this.editedReceiverIndexOf] = this.receiver;
       console.log(this.allUsers);
+
+      // Transfer
+      this.curUser.transfer.push({
+        accountName: this.receiver.username,
+        accountNumber: this.bfAccount_no,
+        amount: amount,
+        reason: this.reason
+      });
+
+      (localStorage["curUser"]) =JSON.stringify(this.curUser);
+
+      // Updating the localStorage
       alert("Transfer was successful");
       localStorage["localStudents"] = JSON.stringify(this.allUsers);
     }

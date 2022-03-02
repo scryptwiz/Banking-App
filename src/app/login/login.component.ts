@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
   login(){
     this.found = this.allCurrentStudents.find((val:any, i:any)=>val.username==this.username && val.password==this.password && val.password==this.confirmPassword)
     if (this.found) {
-      localStorage['currentUser'] = JSON.stringify(this.found)
+      // localStorage['currentUser'] = JSON.stringify(this.found)
       localStorage['curUser'] = JSON.stringify(this.found)
       this.router.navigate(['/dashboard'])
     } else {

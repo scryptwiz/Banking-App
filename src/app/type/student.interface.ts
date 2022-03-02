@@ -8,4 +8,6 @@ export interface bankInterface {
     phonne_number: number,
     account_no: string,
     account_bal: number, 
+    transfer: [],
+    wallet: [],
 }

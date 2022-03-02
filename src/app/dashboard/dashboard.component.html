@@ -9,22 +9,39 @@
                 <input type="search" placeholder="search" class="px-3 py-0.5 rounded outline-none" id="search_bar">
             </div>
         </div>
-        <div class="text-gray-100 h-5/6 mt-12">
+        <div class="text-gray-100 h-4/6 mt-12">
             <h2 class="font-semibold text-2xl">Main Dashbaord</h2>
 
             <!-- transaction Details -->
             <div class="h-3/5 flex justify-between">
-                <div class="w-5/12 mt-10 h-4/5 rounded-xl px-5 py-4" id="side_cont">
+                <div class="w-5/12 mt-7 h-4/5 rounded-xl px-5 py-4" id="side_cont">
                     <h3>Recent Transactions</h3>
                 </div>
-                <div class="w-5/12 mt-10 h-4/5 rounded-xl px-5 py-4" id="side_cont">
+                <div class="w-5/12 mt-7 h-4/5 rounded-xl px-5 py-4" id="side_cont">
                     <h3>Recent Transactions</h3>
+
                 </div>
             </div>
 
             <!-- buttom div -->
-            <div class="w-full rounded-xl h-2/6 mt-2 p-4" id="side_cont">
-                Hello hw are u doing
+            <div class="w-full rounded-xl h-3/5 p-4" id="side_cont">
+                <h4 class="font-semibold">Recent Transactions</h4>
+                <div class="w-full h-5/6 mt-2">
+                    <div class="h-10 pl-5 border-b border-gray-500 text-gray-300 flex justify-between items-center text-center">
+                        <div class="font-semibold">S/N</div>
+                        <div class="w-1/5  font-semibold">Bank Name</div>
+                        <div class="w-1/5  font-semibold">Account Name</div>
+                        <div class="w-1/5  font-semibold">Account number</div>
+                        <div class="w-1/5  font-semibold">Amount</div>
+                    </div>
+                    <div class="h-10 pl-5 flex justify-between items-center text-center text-gray-200" *ngFor="let transfers of transfer">
+                        <div class=" font-semibold text-center pl-2">1</div>
+                        <div class="w-1/5">B Bank</div>
+                        <div class="w-1/5">{{transfers.accountName}}</div>
+                        <div class="w-1/5">{{transfers.accountNumber}}</div>
+                        <div class="w-1/5">{{transfers.amount}}</div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

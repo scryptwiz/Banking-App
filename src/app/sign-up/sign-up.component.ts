@@ -15,6 +15,8 @@ export class SignUpComponent implements OnInit {
   public phone_number:number = 0;
   public account_no: string = "";
   public account_bal: number = 50000;
+  public transfer:[] =[];
+  public wallet:[] =[];
   public allCurrentStudents:bankInterface[]=[]
   constructor(public NewStudentService: NewStudentService, public router:Router) { }
 
@@ -35,9 +37,9 @@ export class SignUpComponent implements OnInit {
   addStudents(){
     console.log(this.account_no);
     this.account_no =`62626${ Math.floor(Math.random()*100000)}`;
-    let {username, email, password, phone_number, account_no, account_bal} = this
+    let {username, email, password, phone_number, account_no, account_bal, transfer, wallet} = this
     
-    this.NewStudentService.addStudents({username, email, password, phone_number, account_no, account_bal})
+    this.NewStudentService.addStudents({username, email, password, phone_number, account_no, account_bal, wallet, transfer})
     this.router.navigate(["/"])
   }
 }

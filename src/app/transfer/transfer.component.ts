@@ -51,6 +51,7 @@ export class TransferComponent implements OnInit {
     else {
       // Editing Sender
       this.currentUser.account_bal = this.curUser.account_bal-this.amount;
+      this.curUser.account_bal = this.curUser.account_bal-this.amount;
       this.allUsers[this.editedSenderIndexOf] = this.currentUser;
       (localStorage["curUser"]) =JSON.stringify(this.currentUser);
 

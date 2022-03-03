@@ -1,24 +1,11 @@
-<!-- <p>Transfer workks!</p>
-<div class="row p-5">
-    <div>{{currentUser.account_bal}}</div>
-    <div class="col-4 shadow p-5">
-        <input type="text" placeholder="Amount" class="form-control mt-3" [(ngModel)]="amount">
-        <input type="text" placeholder="Beneficiary Account numbert" class="form-control mt-3" [(ngModel)]="bfAccount_no">
-        <input type="text" placeholder="Reason for transfer" class="form-control mt-3" [(ngModel)]="reason">
-        <input type="text" placeholder="password" class="form-control mt-3" [(ngModel)]="password"><br><br>
-        <button class="btn btn-primary w-75" style="margin-left: 24px;" (click)="transfer()">Transfer</button>
-    </div>
-</div> -->
-
-<!-- <button (click)="logout()">Logout</button> -->
 <div class="w-screen h-screen flex">
     <div class="h-screen w-8/12 bg-gray-500 px-10 py-5" id="main_bg">
         <div class="flex justify-between items-center h-10">
             <h4 class="font-bold text-xl text-gray-300">B</h4>
             <div class="text-gray-300 flex w-4/6 justify-between">
                 <p class="hover:text-yellow-600 cursor-pointer outline-none" routerLink="/dashboard">Home</p>
-                <p class="text-yellow-600 cursor-pointer outline-none" routerLink="/transfer">Transfer</p>
-                <p class="hover:text-yellow-600 cursor-pointer outline-none" routerLink="/withdraw">Withdraw</p>
+                <p class="hover:text-yellow-600 cursor-pointer outline-none" routerLink="/transfer">Transfer</p>
+                <p class="text-yellow-600 cursor-pointer outline-none" routerLink="/withdraw">Withdraw</p>
                 <p class="hover:text-yellow-600 cursor-pointer outline-none" routerLink="/wallet">Wallet</p>
                 <input type="search" placeholder="search" class="px-3 py-0.5 rounded outline-none" id="search_bar">
             </div>
@@ -26,8 +13,8 @@
         <div class="text-gray-100 h-4/5 mt-12">
             <h2 class="font-semibold text-2xl">Transfer</h2>
             <div class="flex float-right">
-                <p class="hover:text-yellow-500 cursor-pointer" routerLink="/trasfer">Withdraw</p>
-                <p class="text-yellow-500 ml-5 cursor-pointer" routerLink="/trasfer">Transfer</p>
+                <p class="text-yellow-500 cursor-pointer" routerLink="/withdraw">Withdraw</p>
+                <p class="hover:text-yellow-500 ml-5 cursor-pointer" routerLink="/transfer">Transfer</p>
             </div>
 
             <!-- transaction Details -->
@@ -37,19 +24,15 @@
                     <input type="number" placeholder="Amount" class="bg-transparent border-gray-700 text-gray-100 outline-none mt-2 rounded border px-2 text-sm py-1.5 focus:border-yellow-500 transition duration-500 hover:border-yellow-500 w-full" [(ngModel)]="amount">
                 </div>
                 <div class="flex flex-col w-2/5 mt-5">
-                    <label class="text-gray-400 text-sm px-2">Beneficiary account_no</label>
-                    <input type="email" placeholder="Beneficiary account_no" class="bg-transparent border-gray-700 text-gray-100 outline-none mt-2 rounded border px-2 text-sm py-1.5 focus:border-yellow-500 transition duration-500 hover:border-yellow-500 w-full" [(ngModel)]="bfAccount_no">
-                </div>
-                <div class="flex flex-col w-2/5 mt-5">
-                    <label class="text-gray-400 text-sm px-2">Reason For Transfer</label>
-                    <input type="email" placeholder="Reason For Transfer" class="bg-transparent border-gray-700 text-gray-100 outline-none mt-2 rounded border px-2 text-sm py-1.5 focus:border-yellow-500 transition duration-500 hover:border-yellow-500 w-full" [(ngModel)]="reason">
+                    <label class="text-gray-400 text-sm px-2">Account number</label>
+                    <input type="email" placeholder="Account Number" class="bg-transparent border-gray-700 text-gray-100 outline-none mt-2 rounded border px-2 text-sm py-1.5 focus:border-yellow-500 transition duration-500 hover:border-yellow-500 w-full" [(ngModel)]="account_no">
                 </div>
                 <div class="flex flex-col w-2/5 mt-5">
                     <label class="text-gray-400 text-sm px-2">Password</label>
                     <input type="password" placeholder="Password" class="bg-transparent border-gray-700 text-gray-100 outline-none mt-2 rounded border px-2 text-sm py-1.5 focus:border-yellow-500 transition duration-500 hover:border-yellow-500 w-full" [(ngModel)]="password">
                 </div>
                 <div class="flex flex-col w-2/5 mt-7">
-                    <button class="text-gray-100 font-semibold bg-gradient-to-l from-yellow-700 to-yellow-500 rounded py-1.5 transition duration-500" (click)="transfer()">Transfer</button>
+                    <button class="text-gray-100 font-semibold bg-gradient-to-l from-yellow-700 to-yellow-500 rounded py-1.5 transition duration-500" (click)="withdraw()">Withdraw</button>
                 </div>
             </div>
         </div>
@@ -58,31 +41,31 @@
         <div class="flex h-10 items-center justify-between">
             <i class="fa fa-bell text-xl text-gray-300" aria-hidden="true"></i>
             <div class="flex text-gray-100 items-center">
-                <h4>{{currentUser.username}}</h4>
+                <h4>{{curUser.username}}</h4>
                 <i class="fa fa-user-circle text-3xl text-gray-100 ml-4" aria-hidden="true"></i>
             </div>
         </div>
         <hr class="border-gray-400 opacity-50 mt-3">
         <div class="flex flex-col justify-evenly text-gray-100">
             <div class="mt-7">
-                <h1 class="font-bold text-2xl"> {{currentUser.username}}</h1>
+                <h1 class="font-bold text-2xl">{{curUser.username}}</h1>
                 <p class="text-sm mt-1">verified account <i class="fas fa-check-circle text-yellow-600"></i></p>
             </div>
 
             <div class="w-full h-48  rounded-xl mb-9 mt-11 p-4" id="main_bg">
                 <h3 class="font-bold">M</h3>
                 <div class="flex justify-between items-center font-bold text-xl mt-3">
-                    <h3>{{currentUser.username}}</h3>
+                    <h3>Hey</h3>
                     <p>...</p>
                 </div>
                 <p class="text-sm textx-gray-100 mt-4">Balance</p>
-                <h3 class="font-semibold text-xl mt-5 tracking-widest">{{currentUser.account_no}}</h3>
+                <h3 class="font-semibold text-xl mt-5 tracking-widest">{{curUser.account_no}}</h3>
             </div>
 
             <!-- main balance -->
             <div class="w-full h-48 flex justify-center items-center flex-col  rounded-xl" id="main_bg">
                 <h4 class="font-semibold text-2xl">Balance</h4>
-                <h5 class="font-semibold text-2xl mt-3">${{currentUser.account_bal}}</h5>
+                <h5 class="font-semibold text-2xl mt-3">${{curUser.account_bal}}</h5>
             </div>
         </div>
     </div>

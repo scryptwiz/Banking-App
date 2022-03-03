@@ -3,9 +3,10 @@
         <div class="flex justify-between items-center h-10">
             <h4 class="font-bold text-xl text-gray-300">B</h4>
             <div class="text-gray-300 flex w-4/6 justify-between">
-                <p class="=text-yellow-600 cursor-pointer" routerLink="/dashboard">Home</p>
+                <p class="text-yellow-600 cursor-pointer" routerLink="/dashboard">Home</p>
                 <p class="hover:text-yellow-600 cursor-pointer" routerLink="/transfer">Transfer</p>
-                <p class="hover:text-yellow-600 cursor-pointer" routerLink="#">Withdraw</p>
+                <p class="hover:text-yellow-600 cursor-pointer" routerLink="/withdraw">Withdraw</p>
+                <p class="hover:text-yellow-600 cursor-pointer outline-none" routerLink="/wallet">Wallet</p>
                 <input type="search" placeholder="search" class="px-3 py-0.5 rounded outline-none" id="search_bar">
             </div>
         </div>
@@ -25,8 +26,8 @@
 
             <!-- buttom div -->
             <div class="w-full rounded-xl h-3/5 p-4" id="side_cont">
-                <h4 class="font-semibold">Recent Transactions</h4>
-                <div class="w-full h-5/6 mt-2">
+                <h4 class="font-semibold text-center mb-2">Recent Transactions</h4>
+                <div class="w-full h-5/6 overflow-y-scroll overflow-x-hidden mt-2">
                     <div class="h-10 pl-5 border-b border-gray-500 text-gray-300 flex justify-between items-center text-center">
                         <div class="font-semibold">S/N</div>
                         <div class="w-1/5  font-semibold">Bank Name</div>
@@ -34,8 +35,8 @@
                         <div class="w-1/5  font-semibold">Account number</div>
                         <div class="w-1/5  font-semibold">Amount</div>
                     </div>
-                    <div class="h-10 pl-5 flex justify-between items-center text-center text-gray-200" *ngFor="let transfers of transfer">
-                        <div class=" font-semibold text-center pl-2">1</div>
+                    <div class="h-10 pl-5 flex justify-between items-center text-center text-gray-200 mt-1" *ngFor="let transfers of transfer, let i = index">
+                        <div class=" font-semibold text-center pl-2">{{i + 1}}</div>
                         <div class="w-1/5">B Bank</div>
                         <div class="w-1/5">{{transfers.accountName}}</div>
                         <div class="w-1/5">{{transfers.accountNumber}}</div>

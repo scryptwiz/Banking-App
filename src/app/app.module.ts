@@ -6,12 +6,16 @@ import { AppRoutingModule, routingComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NewStudentService } from './new-student.service';
 import { TransferComponent } from './transfer/transfer.component';
+import { WithdrawComponent } from './withdraw/withdraw.component';
+import { WalletComponent } from './wallet/wallet.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     routingComponents,
-    TransferComponent
+    TransferComponent,
+    WithdrawComponent,
+    WalletComponent
   ],
   imports: [
     BrowserModule,
